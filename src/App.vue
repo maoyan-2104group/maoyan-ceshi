@@ -10,7 +10,7 @@ export default {
   components:{
     moviesInTheaters
   }
-
+//测试一下git
 }
 </script>
 
