@@ -4,7 +4,7 @@
     <main>
       <nav>
         <div>
-          北京你好
+          北京
           <i class="city-entry-arrow"></i>
         </div>
         <div>
