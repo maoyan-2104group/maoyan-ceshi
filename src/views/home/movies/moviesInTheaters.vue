@@ -21,102 +21,23 @@
       </nav>
       <!-- 影片信息 -->
       <ul>
-        <li>
+        <li v-for="m in hotlist" :key="m.id">
           <div>
             <img src="https://p1.meituan.net/movie/63cb3dbbaff624b236b2e22b2ee59cff1553093.jpg@1l_1e_1c_128w_180h" alt="">
           </div>
           <div>
-              <h1>信条  <span class="version v2d imax"></span></h1>
-              <p>科幻</p>
-              <p>主演，邹大帅，邹云，黄怡昕主演，邹大帅，邹云，黄怡昕主演，邹大帅，邹云，黄怡昕</p>
-              <div>今天一共有200多个放映</div>
+              <h1>{{m.nm}} <span class="version v2d imax"></span></h1>
+              <p>{{m.cat}}}</p>
+              <p>{{m.desc}}</p>
+              <div>{{m.showInfo}}}</div>
           </div>
           <div>
-            <p>9.5 <span>分</span></p>
+            <p>{{m.sc}}<span>分</span></p>
             <div>购票</div>
         
           </div>
         </li>
-                <li>
-          <div>
-            <img src="https://p1.meituan.net/movie/63cb3dbbaff624b236b2e22b2ee59cff1553093.jpg@1l_1e_1c_128w_180h" alt="">
-          </div>
-          <div>
-              <h1>信条  <span class="version v2d imax"></span></h1>
-              <p>科幻</p>
-              <p>主演，邹大帅，邹云，黄怡昕主演，邹大帅，邹云，黄怡昕主演，邹大帅，邹云，黄怡昕</p>
-              <div>今天一共有200多个放映</div>
-          </div>
-          <div>
-            <p>9.5 <span>分</span></p>
-            <div>购票</div>
-        
-          </div>
-        </li>
-                <li>
-          <div>
-            <img src="https://p1.meituan.net/movie/63cb3dbbaff624b236b2e22b2ee59cff1553093.jpg@1l_1e_1c_128w_180h" alt="">
-          </div>
-          <div>
-              <h1>信条  <span class="version v2d imax"></span></h1>
-              <p>科幻</p>
-              <p>主演，邹大帅，邹云，黄怡昕主演，邹大帅，邹云，黄怡昕主演，邹大帅，邹云，黄怡昕</p>
-              <div>今天一共有200多个放映</div>
-          </div>
-          <div>
-            <p>9.5 <span>分</span></p>
-            <div>购票</div>
-        
-          </div>
-        </li>
-                <li>
-          <div>
-            <img src="https://p1.meituan.net/movie/63cb3dbbaff624b236b2e22b2ee59cff1553093.jpg@1l_1e_1c_128w_180h" alt="">
-          </div>
-          <div>
-              <h1>信条  <span class="version v2d imax"></span></h1>
-              <p>科幻</p>
-              <p>主演，邹大帅，邹云，黄怡昕主演，邹大帅，邹云，黄怡昕主演，邹大帅，邹云，黄怡昕</p>
-              <div>今天一共有200多个放映</div>
-          </div>
-          <div>
-            <p>9.5 <span>分</span></p>
-            <div>购票</div>
-        
-          </div>
-        </li>
-                <li>
-          <div>
-            <img src="https://p1.meituan.net/movie/63cb3dbbaff624b236b2e22b2ee59cff1553093.jpg@1l_1e_1c_128w_180h" alt="">
-          </div>
-          <div>
-              <h1>信条  <span class="version v2d imax"></span></h1>
-              <p>科幻</p>
-              <p>主演，邹大帅，邹云，黄怡昕主演，邹大帅，邹云，黄怡昕主演，邹大帅，邹云，黄怡昕</p>
-              <div>今天一共有200多个放映</div>
-          </div>
-          <div>
-            <p>9.5 <span>分</span></p>
-            <div>购票</div>
-        
-          </div>
-        </li>
-                <li>
-          <div>
-            <img src="https://p1.meituan.net/movie/63cb3dbbaff624b236b2e22b2ee59cff1553093.jpg@1l_1e_1c_128w_180h" alt="">
-          </div>
-          <div>
-              <h1>信条  <span class="version v2d imax"></span></h1>
-              <p>科幻</p>
-              <p>主演，邹大帅，邹云，黄怡昕主演，邹大帅，邹云，黄怡昕主演，邹大帅，邹云，黄怡昕</p>
-              <div>今天一共有200多个放映</div>
-          </div>
-          <div>
-            <p>9.5 <span>分</span></p>
-            <div>购票</div>
-        
-          </div>
-        </li>
+               
       </ul>
     </main>
     <footer>
@@ -168,11 +89,27 @@
 </template>
 
 <script>
+  import  {get} from '../../../utilis/http'
 export default {
   data() {
-    return {};
+    return {
+      hotlist:[]
+    };
   },
-
+async  mounted() {
+    let result =await get(
+      {
+        url:"/api/mmdb/movie/v2/list/hot.json",
+        params:{
+            limit:12,
+            offset:0,
+            ct:'珠海'
+        }
+      }
+      
+    )
+   this.hotlist=result.hot
+  },
   methods: {},
 
   created() {},
