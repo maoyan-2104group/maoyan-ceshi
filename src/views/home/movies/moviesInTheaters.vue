@@ -27,9 +27,9 @@
           </div>
           <div>
               <h1>{{m.nm}} <span class="version v2d imax"></span></h1>
-              <p>{{m.cat}}}</p>
+              <p>{{m.cat}}</p>
               <p>{{m.desc}}</p>
-              <div>{{m.showInfo}}}</div>
+              <div>{{m.showInfo}}</div>
           </div>
           <div>
             <p>{{m.sc}}<span>分</span></p>
@@ -59,7 +59,7 @@
               ></path>
             </g>
           </svg>
-          <span>电影1</span>
+          <span>电影</span>
         </li>
         <li>
           <i class="yo-ico">&#xe8c0;</i>
