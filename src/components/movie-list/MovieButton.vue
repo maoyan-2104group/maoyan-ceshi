@@ -51,9 +51,9 @@ export default {
                 align-items flex-end
                 color #f3ad00
                 p 
-                  font-size .18rem
+                  font-size .17rem
                   color #f3ad00
-                  margin-bottom .16rem
+                  mar gin-bottom .16rem
                   span
                      font-size .12rem
                      transform scale(0.8)
