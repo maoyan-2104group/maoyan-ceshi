@@ -7,7 +7,7 @@ import App from './App.vue'
 Vue.config.productionTip = false
 
 //引入全局样式
-import './assets/reset.css'
+import '@a/reset.css'
 new Vue({
   // router,
   // store,

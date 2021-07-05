@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import  moviesInTheaters from './views/home/movies/moviesInTheaters.vue'
+import  moviesInTheaters from '@v/home/movies/moviesInTheaters.vue'
 export default {
   components:{
     moviesInTheaters
