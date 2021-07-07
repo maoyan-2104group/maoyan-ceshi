@@ -2,14 +2,14 @@
 
 import Vue from 'vue'
 import App from './App.vue'
-
+import router from "./router"
 //屏蔽关于生产环境的提示
 Vue.config.productionTip = false
 
 //引入全局样式
 import '@a/reset.css'
 new Vue({
-  // router,
+  router,
   // store,
   render: h => h(App)
 }).$mount('#app')
