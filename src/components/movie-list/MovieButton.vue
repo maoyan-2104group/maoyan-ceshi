@@ -3,7 +3,9 @@
     <p v-if="movie.showst === 3">{{ movie.sc }}<span>分</span></p>
     <!-- shoust是状态 -->
     <p v-if="movie.showst === 4">{{ movie.wish }}<span>人想看</span></p>
-    <div :class="buttontitle.class">{{ buttontitle.title }}</div>
+    <div :class="buttontitle.class" @click="clickhander">
+      {{ buttontitle.title }}
+    </div>
   </div>
 </template>
 
@@ -34,7 +36,9 @@ export default {
       }
     },
   },
-  methods: {},
+  methods: {
+    clickhander() {},
+  },
 }
 </script>
 

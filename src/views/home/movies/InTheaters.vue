@@ -1,7 +1,7 @@
 <template>
   <!-- 影片信息 -->
   <ul>
-    <li v-for="m in hotlist" :key="m.id">
+    <li v-for="m in hotlist" :key="m.id" @click="clickhander">
       <div>
         <img :src="m.img | wh" alt="" />
       </div>
@@ -41,7 +41,11 @@ export default {
     MovieButton,
     MovieVesion,
   },
-  methods: {},
+  methods: {
+    clickhander() {
+      this.$router.push('/detail')
+    },
+  },
 
   created() {},
 }
