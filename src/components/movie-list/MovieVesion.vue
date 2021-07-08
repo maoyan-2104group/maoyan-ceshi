@@ -23,7 +23,6 @@ export default {
         .replace('imax', 'v2d imax')
         .replace('中国巨幕2d2d', 'v2d imax')
         .replace('中国巨幕3dcinity', 'v3d imax')
-      console.log(str)
       return str
     },
   },

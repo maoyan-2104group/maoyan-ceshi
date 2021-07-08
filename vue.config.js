@@ -38,6 +38,15 @@ module.exports = {
                     "^/upi": ''
                 }
             },
+            '/dpi': {
+                target: 'https://wx.maoyan.com',
+                //是否拦截
+                changeOrigin: true,
+                pathRewrite: {
+                    "^/dpi": ''
+                }
+            },
+
 
         }
     }

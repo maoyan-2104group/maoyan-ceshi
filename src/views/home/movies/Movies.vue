@@ -29,7 +29,10 @@
           <div></div>
         </nav>
         <!-- 这里挂载的是待映和热映子路由的 同时需要把这里获取到了的hotlist传入 哪里挂载了router-view哪里就有子路由 -->
-        <router-view :hotlist="hotlist"></router-view>
+        <router-view
+          :hotlist="hotlist"
+          :all-hot-list="allHotList"
+        ></router-view>
       </main>
     </van-list>
   </van-pull-refresh>
@@ -51,6 +54,7 @@ export default {
       loading: false, //是否处于加载状态，加载过程中不触发load事件
       finished: false, //	是否已加载完成，加载完成后不再触发load事件
       refreshing: false, //上来是没有这个效果的 用户下拉的时候是true
+      allHotList: [],
     }
   },
   created() {

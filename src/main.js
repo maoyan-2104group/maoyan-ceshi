@@ -8,6 +8,9 @@ Vue.config.productionTip = false
 
 //引入全局样式
 import '@a/reset.css'
+
+//引入全局过滤器
+import './filters/filters'
 new Vue({
   router,
   // store,
