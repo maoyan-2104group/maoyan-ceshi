@@ -61,15 +61,6 @@ export default {
   },
 
   methods: {
-    //获取商品详情
-    // async LoadXiangQing() {
-    //   let result = await http.get({
-    //     url: '/upi/ajax/detailmovie',
-    //     params: {
-    //       movieId: 1203734, //这里传入点击时候获取的id
-    //     },
-    //   })
-    // },
     async LoadDate() {
       //如果用户下啦 那么page页码重置为0
       //  if (this.refreshing) {
