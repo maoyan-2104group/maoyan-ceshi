@@ -61,6 +61,15 @@ export default {
   },
 
   methods: {
+    //获取商品详情
+    // async LoadXiangQing() {
+    //   let result = await http.get({
+    //     url: '/upi/ajax/detailmovie',
+    //     params: {
+    //       movieId: 1203734, //这里传入点击时候获取的id
+    //     },
+    //   })
+    // },
     async LoadDate() {
       //如果用户下啦 那么page页码重置为0
       //  if (this.refreshing) {
@@ -79,12 +88,12 @@ export default {
       })
 
       //返回的就是之前的和现在的拼接在一起 那么可以用展开运算符复制 因为他是个数组返回的push就会二维数组
-      this.hotlist = [...this.hotlist, ...result.hot]
+      this.hotlist = [...this.hotlist, ...result.data.hot]
       this.loading = false
       this.page++
       //总页数/页数(12) 可以翻页的页数
       //当当前页码大于等于翻页的页数 就不触发onload也就是请求数据了
-      if (this.page >= Math.ceil(result.total / this.limit)) {
+      if (this.page >= Math.ceil(result.data.total / this.limit)) {
         this.finished = true
       }
     },

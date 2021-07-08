@@ -30,6 +30,14 @@ module.exports = {
                     "^/api": ''
                 }
             },
+            '/upi': {
+                target: 'https://m.maoyan.com',
+                //是否拦截
+                changeOrigin: true,
+                pathRewrite: {
+                    "^/upi": ''
+                }
+            },
 
         }
     }

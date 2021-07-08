@@ -29,7 +29,7 @@ export default {
                 params: params
             })
                 .then(response => {
-                    resolve(response.data.data)
+                    resolve(response.data)
                 })
                 .catch(err => {
                     reject(err)
