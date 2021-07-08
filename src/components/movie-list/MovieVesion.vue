@@ -18,10 +18,12 @@ export default {
       let str = this.ver.split(' ')[0].toLowerCase()
 
       str = str.split('/').join('')
+
       str = str
         .replace('imax', 'v2d imax')
         .replace('中国巨幕2d2d', 'v2d imax')
         .replace('中国巨幕3dcinity', 'v3d imax')
+      console.log(str)
       return str
     },
   },
@@ -32,6 +34,16 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+.pre-show, .version
+  background-size contain
+  background-repeat no-repeat
+  height 14px
+  width 17px
+  display inline-block
+  margin-top 5px
+  -webkit-box-flex 0
+  flex 0 0 auto
+  margin-right 3px
 .pre-show
   width 23px
   background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAcCAMAAAAtIK2eAAAAjVBMVEX/tQD/tQD/tgD/tQAAAAD/tAD///7/2Hz/y07/7MD/6rj/7sX/vBv/z17/35X/zVb/twn/8tX/xDf/uRD//fv/9uP/0mj/wS//viL/+u//78r/5qv/4Zn/tQT//PX/9d3/5KP/yEb/8dD/24T/z1z/xj//wSz/3pD/1nP/1G3/0WT/x0L/vyX/+Of/6LMvfBa2AAAABXRSTlPmphztAPMTpaIAAAEcSURBVDjLtdTdboIwAIbhgn5tKQgFBAXGv+Dvdv+XN7owjBADZNl70KMn5EsaSra6RrAgoulbom+wsI1ONCxOI2Q5XmOBP2A5BfItdvkE749vccFUDWCbprmbweJDxQGjLr8YhBDUEMKfmWE4sBnojdOQU2uM/V1XcFbn44ktNWOKD1T0ReE8zoYFPzhwo+WYeQnzqNPQU0OdCd7zvmqYkcRxToM4juUIP8whPmwGiqQCMPnyQZ2pBZTyib1AGqcJTt0rkhA8B4StMKWUwa+uuAfWGF/cFCyBjDwcs3uHd74v27xIATtoX7GVlUD5CRRn4JJLeBbgRQyqOmpfMDgAv+6QWnjrL/X38p20x//3p5AVdtVTsOqRWfV8fQPHkSVDHb7HRAAAAABJRU5ErkJggg==')

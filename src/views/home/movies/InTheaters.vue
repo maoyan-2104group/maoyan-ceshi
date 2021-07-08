@@ -69,6 +69,8 @@ ul
       height 0.9rem
     h1
       font-size 0.16rem
+      font-weight normal
+      color #222222
       ellipsis()
     p
       line-height 0.24rem
@@ -77,6 +79,7 @@ ul
         ellipsis()
     div
       line-height 0.24rem
+      color #999999
 &:last-child
   border_1px(0)
 </style>

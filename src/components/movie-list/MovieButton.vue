@@ -62,6 +62,7 @@ export default {
     background #dd5042
     color #fff
     text-align center
+    border-radius 0.05rem
     line-height 0.28rem
     &.pre-sale
       background #69afe5
