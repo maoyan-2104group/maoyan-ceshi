@@ -3,20 +3,18 @@
   <div class="box">
     <div class="most-popular">
       <h1>近期最受欢迎</h1>
-      <van-skeleton avatar avatar-shape="square" :row="6" :loading="loading">
-        <div id="most-popular">
-          <ul>
-            <li v-for="(mp, index) in mostPopularList" :key="mp.id + index">
-              <h2>
-                <img :src="mp.img | wh('192.270')" :alt="mp.nm" />
-              </h2>
-              <p class="name">{{ mp.nm }}</p>
-              <p>{{ mp.wish }}想看</p>
-              <p>{{ mp.comingTitle }}</p>
-            </li>
-          </ul>
-        </div>
-      </van-skeleton>
+      <div id="most-popular">
+        <ul>
+          <li v-for="(mp, index) in mostPopularList" :key="mp.id + index">
+            <h2>
+              <img :src="mp.img | wh('192.270')" :alt="mp.nm" />
+            </h2>
+            <p class="name">{{ mp.nm }}</p>
+            <p>{{ mp.wish }}想看</p>
+            <p>{{ mp.comingTitle }}</p>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="list">
       <div v-for="(value, key) in groupedHotList" :key="key">
@@ -50,10 +48,11 @@ export default {
       type: Array,
     },
   },
+
   data() {
     return {
       mostPopularList: [],
-      chunkedList: this.hotlist,
+
       loading: true,
     }
   },
@@ -66,6 +65,7 @@ export default {
     this.page = 0
     this.total = 0
   },
+
   computed: {
     groupedHotList() {
       //这里用了lodash的方法 filter 第一个参数是遍历的集合 第二个是回调函数 第三个参数筛选 这里是判定当这个值为4 1表示没上映的
@@ -88,20 +88,13 @@ export default {
     },
   },
 
-  // async mounted() {
-  //   let result = await http.get({
-  //     url: 'dpi/mmdb/movie/v2/list/rt/order/coming.json',
-  //     params: {
-  //       limit: 12,
-  //       offset: 0,
-  //       ci: 1,
-  //     },
-  //   })
-  //   //把数据放到data数据mostPopularList里面
-  //   this.mostPopularList = result.data.coming
-
-  // },
   async mounted() {
+    //这刷新一次的方法
+    if (location.href.indexOf('#reloaded') == -1) {
+      location.href = location.href + '#reloaded'
+      location.reload()
+    }
+
     await this.loadData()
 
     //BetterScroll
@@ -117,6 +110,11 @@ export default {
       }
     })
   },
+  watch: {
+    $rouer() {
+      window.location.reload()
+    },
+  },
   methods: {
     async loadData() {
       let result = await http.get({
@@ -127,10 +125,10 @@ export default {
           ci: 1,
         },
       })
+
       this.total = result.data.paging.total
 
       this.mostPopularList = [...this.mostPopularList, ...result.data.coming]
-      console.log(this.mostPopularList)
       this.loading = false
       this.page++
     },

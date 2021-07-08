@@ -29,10 +29,7 @@
           <div></div>
         </nav>
         <!-- 这里挂载的是待映和热映子路由的 同时需要把这里获取到了的hotlist传入 哪里挂载了router-view哪里就有子路由 -->
-        <router-view
-          :hotlist="hotlist"
-          :all-hot-list="allHotList"
-        ></router-view>
+        <router-view :hotlist="hotlist"></router-view>
       </main>
     </van-list>
   </van-pull-refresh>
@@ -63,7 +60,6 @@ export default {
     this.page = 0
     this.ct = '珠海'
   },
-
   methods: {
     async LoadDate() {
       //如果用户下啦 那么page页码重置为0
@@ -81,7 +77,6 @@ export default {
           ct: this.ct,
         },
       })
-
       //返回的就是之前的和现在的拼接在一起 那么可以用展开运算符复制 因为他是个数组返回的push就会二维数组
       this.hotlist = [...this.hotlist, ...result.data.hot]
       this.loading = false
